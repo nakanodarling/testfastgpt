@@ -69,8 +69,6 @@ jobs:
         run: |
           docker buildx build \
           -f ${{ steps.config.outputs.DOCKERFILE }} \
-          --build-arg ALI_HUB_USERNAME=${{ secrets.ALI_HUB_USERNAME }} \
-          --build-arg ALI_HUB_PASSWORD=${{ secrets.ALI_HUB_PASSWORD }} \
           --label "org.opencontainers.image.source=https://github.com/${{ github.repository_owner }}/FastGPT" \
           --label "org.opencontainers.image.description=${{ steps.config.outputs.DESCRIPTION }}" \
           --push \
