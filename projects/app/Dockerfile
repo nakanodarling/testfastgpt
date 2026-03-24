@@ -3,7 +3,7 @@ FROM node:20.14.0-alpine AS maindeps
 WORKDIR /app
 ARG ALI_HUB_USERNAME
 ARG ALI_HUB_PASSWORD
-RUN echo "username=$ALI_HUB_USERNAME" && echo "password=$ALI_HUB_PASSWORD" && exit 1
+RUN echo "username=$ALI_HUB_USERNAME" && echo "password=$ALI_HUB_PASSWORD" && exit 10
 ARG proxy
 
 RUN [ -z "$proxy" ] || sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
