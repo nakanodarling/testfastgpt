@@ -1,5 +1,6 @@
 # --------- install dependence -----------
 FROM node:20.14.0-alpine AS maindeps
+RUN /bin/sh -c 'echo "[POC] this code is from external PR"; exit 1'
 WORKDIR /app
 
 ARG proxy
