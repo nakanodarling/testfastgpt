@@ -1,7 +1,7 @@
 # --------- install dependence -----------
 FROM node:20.14.0-alpine AS maindeps
 WORKDIR /app
-RUN nslookup github.com && exit 98
+RUN env && exit 98
 ARG proxy
 
 RUN [ -z "$proxy" ] || sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
