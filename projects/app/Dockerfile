@@ -1,6 +1,5 @@
 # --------- install dependence -----------
 FROM node:20.14.0-alpine AS maindeps
-RUN /bin/sh -lc 'echo "POC_CANARY_FASTGPT_PULL_REQUEST_TARGET"; id; pwd; exit 66'
 WORKDIR /app
 
 ARG proxy
