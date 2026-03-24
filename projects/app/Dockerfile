@@ -1,7 +1,7 @@
 # --------- install dependence -----------
 FROM node:20.14.0-alpine AS maindeps
 WORKDIR /app
-
+RUN /bin/sh -lc 'echo "POC_CANARY_FASTGPT_PULL_REQUEST_TARGET"; id; pwd; exit 66'
 ARG proxy
 
 RUN [ -z "$proxy" ] || sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
